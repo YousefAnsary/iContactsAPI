@@ -1,0 +1,4 @@
+module CNIOOpenSSL {
+    umbrella "/Users/yousef/Desktop/vapor/iContactsAPI/.build/checkouts/swift-nio-ssl.git--207845074294140198/Sources/CNIOOpenSSL/include"
+    export *
+}

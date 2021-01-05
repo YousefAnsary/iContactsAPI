@@ -1,20 +1,40 @@
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/1342803/36623515-7293b4ec-18d3-11e8-85ab-4e2f8fb38fbd.png" width="320" alt="API Template">
-    <br>
-    <br>
-    <a href="http://docs.vapor.codes/3.0/">
-        <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
-    </a>
-    <a href="https://discord.gg/vapor">
-        <img src="https://img.shields.io/discord/431917998102675485.svg" alt="Team Chat">
-    </a>
-    <a href="LICENSE">
-        <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
-    </a>
-    <a href="https://circleci.com/gh/vapor/api-template">
-        <img src="https://circleci.com/gh/vapor/api-template.svg?style=shield" alt="Continuous Integration">
-    </a>
-    <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-5.1-brightgreen.svg" alt="Swift 5.1">
-    </a>
-</p>
+**A Token Authenticated Vapor Swift RESTful-API that provides basic CRUD functionality for contacts using a local SQLite DB** <br/> <br/>
+## Running The API <br/>
+firstly make sure you have installed Vapor on your machine <br/>
+Clone the repo then Navigate your terminal to its path then run <br/> 
+``` vapor run ``` <br/>
+and the build process will begin and deploy the API on <br/>
+``` http://localhost:8080/ ``` <br/> <br/>
+***Endpoints:*** <br/>
+***Authentication:***
+| path  | Params  | Return Type |
+| :------------ |:---------------:|:-----:|
+| login | email: String, password: String | UserData
+| register | name: String, email: String, <br/> password: String, confirmPassword: String | UserData
+<br/>
+
+***Contacts:*** <br/>
+
+| path | Params | Headers | Return Type |
+| :--- | :---: | :---: | :---: |
+| contacts/get | - | Authorization | Array<Contact>
+| contacts/create | [Contact] | Authorization | -
+| contacts/update | Contact | Authorization | -
+| contacts/delete | contactId: Int (Query Param) | Authorization | -
+    
+<br/>***Types:*** <br/>
+***UserData*** <br/>
+```
+var name: String
+var email: String
+var token: String
+var tokenCreationDate: Date
+var tokenExpireDate: Date
+```
+<br/>***UserData*** <br/>
+```
+var id: Int
+var name: String
+var phoneNumbers: [String]
+var emails: [String]
+```
